@@ -99,6 +99,81 @@
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+    try {
+      randomFunction();
+    //   errorBtns[15].addEventListener('click', () => {
+    //     console.log("testing");
+    // });
+    }
+    catch(err) {
+      console.log("button 15 does not exist")
+    }
+    errorBtns[0].addEventListener('click', () => {
+      console.log("Console Log Demo");
+    });
+    errorBtns[1].addEventListener('click', () => {
+      console.error("Console Error Demo");
+    });
+    errorBtns[2].addEventListener('click', () => {
+      console.count("Count Button");
+    });
+    errorBtns[3].addEventListener('click', () => {
+      console.warn("Console Warn Button");
+    });
+    errorBtns[4].addEventListener('click', () => {
+      const number = 2;
+      const y = 3;
+      const reason = "The number is not equal to 3."
+      console.assert(number == y, {number, reason});
+    });
+    errorBtns[5].addEventListener('click', () => {
+      console.clear();
+    });
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(errorBtns);
+    });
+    errorBtns[7].addEventListener('click', () => {
+      console.dirxml(errorBtns[7]);
+    });
+    errorBtns[8].addEventListener('click', () => {
+      console.group("console.group");
+    });
+    errorBtns[9].addEventListener('click', () => {
+      console.groupEnd();
+    });
+    errorBtns[10].addEventListener('click', () => {
+      var csClasses = [
+        {
+          name: "Software Engineering",
+          num: "110",
+        },
+        {
+          name: "Programming Languages: Principles and Paradigms",
+          num: "130",
+        },
+        {
+          name: "Advanced Software Engineering",
+          num: "112",
+        }
+      ];
+      console.table(csClasses);
+    });
+    errorBtns[11].addEventListener('click', () => {
+      console.time("Timer Button");
+    });
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd("Timer Button");
+    });
+    errorBtns[13].addEventListener('click', () => {
+      const handleBtnClick = () => { deep(); };
+      const deep = () => { deeper(); };
+      const deeper = () => { deepest(); };
+      const deepest = () => { console.trace(); };
+      handleBtnClick();
+    });
+    
+
+    
 
     // Start your code here
     // You may move this JS to another file if you wish
