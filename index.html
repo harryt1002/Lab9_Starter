@@ -171,6 +171,39 @@
       const deepest = () => { console.trace(); };
       handleBtnClick();
     });
+
+    class ConsoleError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "ConsoleError";
+      }
+    }
+    
+    function readInput(json) {
+      let input = JSON.parse(json);
+      if (!input.command) {
+        throw new ConsoleError("No field: command");
+      }
+      if (!input.type) {
+        throw new ConsoleError("No field: type");
+      }
+      return input;
+    }
+
+    try {
+      let input = readInput('{ "command": "console" }');
+    }
+    catch (err) {
+      if (err instanceof ConsoleError) {
+        alert("Invalid data: " + err.message);
+      }
+      else if (err instanceof SyntaxError) {
+        alert("JSON Syntax Error: " + err.message);
+      }
+      else {
+        throw err;
+      }
+    }
     
 
     
